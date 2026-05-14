@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowLeft, Mail, MessageSquare, FileText } from "lucide-react";
-import { PRODUCTS } from "@/data/products";
+import { PRODUCTS, type Product } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
 
 export const Route = createFileRoute("/products/$slug")({
