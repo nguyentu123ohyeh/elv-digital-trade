@@ -39,7 +39,7 @@ export const Route = createFileRoute("/products/$slug")({
 const TABS = ["Overview", "Specifications", "Applications", "Packaging & Supply", "Inquiry"] as const;
 
 function ProductDetail() {
-  const { product } = Route.useLoaderData();
+  const { product } = Route.useLoaderData() as { product: Product };
   const [activeImg, setActiveImg] = useState(0);
   const [tab, setTab] = useState<(typeof TABS)[number]>("Overview");
 
