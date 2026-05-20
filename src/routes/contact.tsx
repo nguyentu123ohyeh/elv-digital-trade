@@ -41,11 +41,8 @@ function ContactPage() {
             <div className="glass rounded-2xl p-6">
               <Mail className="h-6 w-6 text-primary" />
               <div className="mt-3 text-xs font-mono uppercase tracking-widest text-muted-foreground">Email</div>
-<<<<<<< HEAD
               <div className="mt-1 font-mono text-sm">sales@deligentelvindustrial.com</div>
-=======
               <div className="mt-1 font-mono text-sm">your-email@example.com</div>
->>>>>>> 8cd8b5a4435d8b752b88c74018e6f3a86367c10a
             </div>
             <div className="glass rounded-2xl p-6">
               <Clock className="h-6 w-6 text-primary" />
