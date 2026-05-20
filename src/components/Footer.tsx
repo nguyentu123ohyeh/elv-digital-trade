@@ -32,7 +32,6 @@ export function Footer() {
           <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-3">Contact</div>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> sales@deligentelvindustrial.com</li>
-            <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> your-email@example.com</li>
             <li className="flex items-start gap-2"><Clock className="h-4 w-4 mt-0.5 text-primary" /> Mon–Fri 9:00–18:00</li>
           </ul>
         </div>

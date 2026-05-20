@@ -42,7 +42,7 @@ function ContactPage() {
               <Mail className="h-6 w-6 text-primary" />
               <div className="mt-3 text-xs font-mono uppercase tracking-widest text-muted-foreground">Email</div>
               <div className="mt-1 font-mono text-sm">sales@deligentelvindustrial.com</div>
-              <div className="mt-1 font-mono text-sm">your-email@example.com</div>
+              <div className="mt-1 font-mono text-sm"></div>
             </div>
             <div className="glass rounded-2xl p-6">
               <Clock className="h-6 w-6 text-primary" />

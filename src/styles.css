@@ -198,3 +198,62 @@
   font-display: swap;
   src: url("https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yK1jPVmUsaaDhw.woff2") format("woff2");
 }
+
+/* Fix product images showing wrong/tinted colors */
+.product-image-box {
+  background: #ffffff;
+  isolation: isolate;
+}
+
+.product-image-box img {
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  opacity: 1 !important;
+  object-fit: contain;
+}
+
+/* Remove color overlay effect on product images */
+.product-image-box::before,
+.product-image-box::after {
+  display: none !important;
+}
+
+/* ================================
+   PRODUCT IMAGE - SHOW FULL IMAGE
+================================ */
+
+.product-image-box {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.product-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block;
+  padding: 10px;
+  background: #ffffff;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Khi hover chỉ phóng nhẹ, không cắt ảnh */
+.group:hover .product-image-box img {
+  transform: scale(1.04);
+}
+
+/* Xóa hiệu ứng nền làm ảnh bị ám màu */
+.product-image-box .circuit-bg,
+.product-image-box::before,
+.product-image-box::after {
+  display: none !important;
+}

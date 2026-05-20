@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useRouterState } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS, CATEGORIES } from "@/data/products";
@@ -18,10 +18,17 @@ const PER_PAGE = 9;
 const SORTS = ["Default", "Name A–Z", "Name Z–A", "Category"] as const;
 
 function ProductsPage() {
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
+
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string>("All Products");
   const [sort, setSort] = useState<(typeof SORTS)[number]>("Default");
   const [page, setPage] = useState(1);
+
+  const isProductDetailPage =
+    pathname.startsWith("/products/") && pathname !== "/products";
 
   const filtered = useMemo(() => {
     const term = q.trim().toLowerCase();
@@ -29,16 +36,27 @@ function ProductsPage() {
       if (cat !== "All Products" && p.category !== cat) return false;
       if (!term) return true;
       const hay = [
-        p.name, p.category, p.model, p.shortDescription,
+        p.name,
+        p.category,
+        p.model,
+        p.shortDescription,
         ...Object.values(p.specifications),
-      ].join(" ").toLowerCase();
+      ]
+        .join(" ")
+        .toLowerCase();
       return hay.includes(term);
     });
+
     if (sort === "Name A–Z") list = [...list].sort((a, b) => a.name.localeCompare(b.name));
     if (sort === "Name Z–A") list = [...list].sort((a, b) => b.name.localeCompare(a.name));
     if (sort === "Category") list = [...list].sort((a, b) => a.category.localeCompare(b.category));
+
     return list;
   }, [q, cat, sort]);
+
+  if (isProductDetailPage) {
+    return <Outlet />;
+  }
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
   const safePage = Math.min(page, totalPages);
