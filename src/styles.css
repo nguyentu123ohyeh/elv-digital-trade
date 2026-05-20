@@ -1,14 +1,11 @@
-<<<<<<< HEAD
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @source "../src";
 @source "../index.html";
-=======
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
->>>>>>> 8cd8b5a4435d8b752b88c74018e6f3a86367c10a
 
 @custom-variant dark (&:is(.dark *));
 
